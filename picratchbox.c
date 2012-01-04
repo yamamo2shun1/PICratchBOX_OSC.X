@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with PICnome. if not, see <http:/www.gnu.org/licenses/>.
  *
- * picratchbox.c,v.1.0.01 2012/01/01
+ * picratchbox.c,v.1.0.03 2012/01/04
  */
 
 #include "picratchbox.h"
@@ -237,11 +237,22 @@ void receiveOscMsgs(void)
       x = my_atoi(string[2]);
       state = my_atoi(string[1]);
 
-      if(state)
-        led_data[3 - x] |= (1 << y);
+      if(y < 4)
+      {
+        if(state)
+          led_data[3 - x] |= (1 << y);
+        else
+          led_data[3 - x] &= ~(1 << y);
+        sendSpiLED((3 - x) + 1, led_data[3 - x]);
+      }
       else
-        led_data[3 - x] &= ~(1 << y);
-      sendSpiLED((3 - x) + 1, led_data[3 - x]);
+      {
+        if(state)
+          led_data[2 - x] |= (1 << y);
+        else
+          led_data[2 - x] &= ~(1 << y);
+        sendSpiLED((2 - x) + 1, led_data[2 - x]);
+      }
     }
     else if(string[0] == 'l' && string[1] == 'r') // led_col
     {
@@ -397,7 +408,7 @@ void receiveOscMsgs(void)
     {
       sendmsg[0] = 'f';
       sendmsg[1] = 10;
-      sendmsg[2] = 2;
+      sendmsg[2] = 3;
       if(mUSBUSARTIsTxTrfReady())
         mUSBUSARTTxRam(sendmsg, 3);
       CDCTxService();
@@ -486,7 +497,10 @@ void sendOscMsgPress(void)
         else
           sendmsg[msg_index] = 'r';
         //sy sendmsg[msg_index + 1] = (i << 4) + j;// i = y, j = x
-        sendmsg[msg_index + 1] = (j << 4) + (3 - i);// i = y, j = x
+        if(j < 4)
+          sendmsg[msg_index + 1] = (j << 4) + (3 - i);// i = y, j = x
+        else
+          sendmsg[msg_index + 1] = (j << 4) + (2 - i);// i = y, j = x
         msg_index += 2;
       }
     }
