@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with PICnome. if not, see <http:/www.gnu.org/licenses/>.
  *
- * picratchbox.h,v.1.0.03 2012/01/04
+ * picratchbox.h,v.1.0.05 2012/01/06
  */
 
 #define MULTI_PLEXER
@@ -40,8 +40,8 @@ _CONFIG4(DSWDTPS_DSWDTPS0 & DSWDTOSC_LPRC & RTCOSC_LPRC & DSBOREN_OFF & DSWDTEN_
 #include "usb_config.h"
 #include "usb_device.h"
 #include "stdio.h"
-//test #include "math.h"
-//test #include "DEE Emulation 16-bit.h"
+#include "math.h"
+#include "DEE Emulation 16-bit.h"
 
 // Global Variables
 BYTE i, j, k, p, q, s, t;

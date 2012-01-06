@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with PICnome. if not, see <http:/www.gnu.org/licenses/>.
  *
- * picratchbox.c,v.1.0.03 2012/01/04
+ * picratchbox.c,v.1.0.05 2012/01/06
  */
 
 #include "picratchbox.h"
@@ -97,6 +97,32 @@ int main(void)
     anlg1[i] = 0;
     anlg0[i] = 0;
   }
+
+  DataEEInit();
+  dataEEFlags.val = 0;
+
+  xfader_curve = DataEERead(xfaddr);
+  volfader_curve[0] = DataEERead(vf0addr);
+  volfader_curve[1] = DataEERead(vf1addr);
+  if(xfader_curve > 7)
+    xfader_curve = 4;
+  if(volfader_curve[0] > 7)
+    volfader_curve[0] = 4;
+  if(volfader_curve[1] > 7)
+    volfader_curve[1] = 4;
+
+#if 0//test
+  xrev = DataEERead(revxaddr);
+  v0rev = DataEERead(rev0addr);
+  v1rev = DataEERead(rev1addr);
+
+  if(xrev > 1)
+    xrev  = 0;
+  if(v0rev > 1)
+    v0rev  = 0;
+  if(v1rev > 1)
+    v1rev  = 0;
+#endif//test
 
   delayMs(100);
 
@@ -361,26 +387,64 @@ void receiveOscMsgs(void)
           break;
       }
     }
-    else if(string[0] == 'f' && string[1] == 'c')
+    else if(string[0] == 'c' && string[1] == 's')
     {
       BYTE pin, curve;
       ch = strtok(string, space);
       ch = strtok(0, space);
       pin = atoi(ch);
       ch = strtok(0, space);
-      state = atoi(ch);
+      curve = atoi(ch);
       switch(pin)
       {
         case 0:
+          xfader_curve = curve;
           DataEEWrite(curve, xfaddr);
           break;
         case 1:
+          volfader_curve[0] = curve;
           DataEEWrite(curve, vf0addr);
           break;
         case 2:
+          volfader_curve[1] = curve;
           DataEEWrite(curve, vf1addr);
           break;
       }
+    }
+    else if(string[0] == 'c' && string[1] == 'g')
+    {
+      BYTE pin;
+      ch = strtok(string, space);
+      ch = strtok(0, space);
+      pin = atoi(ch);
+      sendmsg[0] = 'c';
+      sendmsg[1] = 'g';
+      sendmsg[2] = pin;
+      switch(pin)
+      {
+        case 0:
+          xfader_curve = DataEERead(xfaddr);
+          if(xfader_curve > 7)
+            xfader_curve = 4;
+          sendmsg[3] = xfader_curve;
+          break;
+        case 1:
+          volfader_curve[0] = DataEERead(vf0addr);
+          if(volfader_curve[0] > 7)
+            volfader_curve[0] = 4;
+          sendmsg[3] = volfader_curve[0];
+          break;
+        case 2:
+          volfader_curve[1] = DataEERead(vf1addr);
+          if(volfader_curve[1] > 7)
+            volfader_curve[1] = 4;
+          sendmsg[3] = volfader_curve[1];
+          break;
+      }
+      if(mUSBUSARTIsTxTrfReady())
+        mUSBUSARTTxRam(sendmsg, 4);
+      CDCTxService();
+      delayUs(2);
     }
     else if(string[0] == 'i') // intensity
     {
@@ -408,7 +472,7 @@ void receiveOscMsgs(void)
     {
       sendmsg[0] = 'f';
       sendmsg[1] = 10;
-      sendmsg[2] = 3;
+      sendmsg[2] = 5;
       if(mUSBUSARTIsTxTrfReady())
         mUSBUSARTTxRam(sendmsg, 3);
       CDCTxService();
