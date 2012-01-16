@@ -11,10 +11,9 @@
 include Makefile
 
 # Environment
-SHELL=cmd.exe
 # Adding MPLAB X bin directory to path
-PATH:=C:/Program Files (x86)/Microchip/MPLABX/mplab_ide/mplab_ide/modules/../../bin/:$(PATH)
-MKDIR=gnumkdir -p
+PATH:=/Applications/microchip/mplabx/mplab_ide.app/Contents/Resources/mplab_ide/mplab_ide/modules/../../bin/:$(PATH)
+MKDIR=mkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -52,7 +51,7 @@ ASFLAGS=
 LDLIBSOPTIONS=
 
 # Path to java used to run MPLAB X when this makefile was created
-MP_JAVA_PATH="C:\Program Files\Java\jre6/bin/"
+MP_JAVA_PATH="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/"
 OS_CURRENT="$(shell uname -s)"
 ############# Tool locations ##########################################
 # If you copy a project from one host to another, the path where the  #
@@ -60,19 +59,19 @@ OS_CURRENT="$(shell uname -s)"
 # If you open this project with MPLAB X in the new host, this         #
 # makefile will be regenerated and the paths will be corrected.       #
 #######################################################################
-MP_CC="C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe"
+MP_CC="/Applications/microchip/mplabc30/v3.30c/bin/pic30-gcc"
 # MP_BC is not defined
-MP_AS="C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe"
-MP_LD="C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe"
-MP_AR="C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ar.exe"
-DEP_GEN=${MP_JAVA_PATH}java -jar "C:/Program Files (x86)/Microchip/MPLABX/mplab_ide/mplab_ide/modules/../../bin/extractobjectdependencies.jar" 
+MP_AS="/Applications/microchip/mplabc30/v3.30c/bin/pic30-as"
+MP_LD="/Applications/microchip/mplabc30/v3.30c/bin/pic30-ld"
+MP_AR="/Applications/microchip/mplabc30/v3.30c/bin/pic30-ar"
+DEP_GEN=${MP_JAVA_PATH}java -jar "/Applications/microchip/mplabx/mplab_ide.app/Contents/Resources/mplab_ide/mplab_ide/modules/../../bin/extractobjectdependencies.jar" 
 # fixDeps replaces a bunch of sed/cat/printf statements that slow down the build
 FIXDEPS=fixDeps
-MP_CC_DIR="C:\Program Files (x86)\Microchip\MPLAB C30\bin"
+MP_CC_DIR="/Applications/microchip/mplabc30/v3.30c/bin"
 # MP_BC_DIR is not defined
-MP_AS_DIR="C:\Program Files (x86)\Microchip\MPLAB C30\bin"
-MP_LD_DIR="C:\Program Files (x86)\Microchip\MPLAB C30\bin"
-MP_AR_DIR="C:\Program Files (x86)\Microchip\MPLAB C30\bin"
+MP_AS_DIR="/Applications/microchip/mplabc30/v3.30c/bin"
+MP_LD_DIR="/Applications/microchip/mplabc30/v3.30c/bin"
+MP_AR_DIR="/Applications/microchip/mplabc30/v3.30c/bin"
 # MP_BC_DIR is not defined
 
 .build-conf:  ${BUILD_SUBPROJECTS}
@@ -123,62 +122,62 @@ ${OBJECTDIR}/USB/usb_device.o: USB/usb_device.c  nbproject/Makefile-${CND_CONF}.
 	@${MKDIR} ${OBJECTDIR}/USB 
 	@${RM} ${OBJECTDIR}/USB/usb_device.o.d 
 	@${RM} ${OBJECTDIR}/USB/usb_device.o.ok ${OBJECTDIR}/USB/usb_device.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/USB/usb_device.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/USB/usb_device.o.d" -o ${OBJECTDIR}/USB/usb_device.o USB/usb_device.c  
+	@${FIXDEPS} "${OBJECTDIR}/USB/usb_device.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/USB/usb_device.o.d" -o ${OBJECTDIR}/USB/usb_device.o USB/usb_device.c  
 	
 ${OBJECTDIR}/USB/usb_function_cdc.o: USB/usb_function_cdc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/USB 
 	@${RM} ${OBJECTDIR}/USB/usb_function_cdc.o.d 
 	@${RM} ${OBJECTDIR}/USB/usb_function_cdc.o.ok ${OBJECTDIR}/USB/usb_function_cdc.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/USB/usb_function_cdc.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/USB/usb_function_cdc.o.d" -o ${OBJECTDIR}/USB/usb_function_cdc.o USB/usb_function_cdc.c  
+	@${FIXDEPS} "${OBJECTDIR}/USB/usb_function_cdc.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/USB/usb_function_cdc.o.d" -o ${OBJECTDIR}/USB/usb_function_cdc.o USB/usb_function_cdc.c  
 	
 ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o: DEE\ Emulation\ 16-bit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o.d 
 	@${RM} ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o.ok ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/DEE Emulation 16-bit.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/DEE Emulation 16-bit.o.d" -o "${OBJECTDIR}/DEE Emulation 16-bit.o" "DEE Emulation 16-bit.c"  
+	@${FIXDEPS} "${OBJECTDIR}/DEE Emulation 16-bit.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/DEE Emulation 16-bit.o.d" -o "${OBJECTDIR}/DEE Emulation 16-bit.o" "DEE Emulation 16-bit.c"  
 	
 ${OBJECTDIR}/picratchbox.o: picratchbox.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/picratchbox.o.d 
 	@${RM} ${OBJECTDIR}/picratchbox.o.ok ${OBJECTDIR}/picratchbox.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/picratchbox.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/picratchbox.o.d" -o ${OBJECTDIR}/picratchbox.o picratchbox.c  
+	@${FIXDEPS} "${OBJECTDIR}/picratchbox.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/picratchbox.o.d" -o ${OBJECTDIR}/picratchbox.o picratchbox.c  
 	
 ${OBJECTDIR}/usb_descriptors.o: usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/usb_descriptors.o.d 
 	@${RM} ${OBJECTDIR}/usb_descriptors.o.ok ${OBJECTDIR}/usb_descriptors.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/usb_descriptors.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/usb_descriptors.o.d" -o ${OBJECTDIR}/usb_descriptors.o usb_descriptors.c  
+	@${FIXDEPS} "${OBJECTDIR}/usb_descriptors.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/usb_descriptors.o.d" -o ${OBJECTDIR}/usb_descriptors.o usb_descriptors.c  
 	
 else
 ${OBJECTDIR}/USB/usb_device.o: USB/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/USB 
 	@${RM} ${OBJECTDIR}/USB/usb_device.o.d 
 	@${RM} ${OBJECTDIR}/USB/usb_device.o.ok ${OBJECTDIR}/USB/usb_device.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/USB/usb_device.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/USB/usb_device.o.d" -o ${OBJECTDIR}/USB/usb_device.o USB/usb_device.c  
+	@${FIXDEPS} "${OBJECTDIR}/USB/usb_device.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/USB/usb_device.o.d" -o ${OBJECTDIR}/USB/usb_device.o USB/usb_device.c  
 	
 ${OBJECTDIR}/USB/usb_function_cdc.o: USB/usb_function_cdc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/USB 
 	@${RM} ${OBJECTDIR}/USB/usb_function_cdc.o.d 
 	@${RM} ${OBJECTDIR}/USB/usb_function_cdc.o.ok ${OBJECTDIR}/USB/usb_function_cdc.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/USB/usb_function_cdc.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/USB/usb_function_cdc.o.d" -o ${OBJECTDIR}/USB/usb_function_cdc.o USB/usb_function_cdc.c  
+	@${FIXDEPS} "${OBJECTDIR}/USB/usb_function_cdc.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/USB/usb_function_cdc.o.d" -o ${OBJECTDIR}/USB/usb_function_cdc.o USB/usb_function_cdc.c  
 	
 ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o: DEE\ Emulation\ 16-bit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o.d 
 	@${RM} ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o.ok ${OBJECTDIR}/DEE\ Emulation\ 16-bit.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/DEE Emulation 16-bit.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/DEE Emulation 16-bit.o.d" -o "${OBJECTDIR}/DEE Emulation 16-bit.o" "DEE Emulation 16-bit.c"  
+	@${FIXDEPS} "${OBJECTDIR}/DEE Emulation 16-bit.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/DEE Emulation 16-bit.o.d" -o "${OBJECTDIR}/DEE Emulation 16-bit.o" "DEE Emulation 16-bit.c"  
 	
 ${OBJECTDIR}/picratchbox.o: picratchbox.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/picratchbox.o.d 
 	@${RM} ${OBJECTDIR}/picratchbox.o.ok ${OBJECTDIR}/picratchbox.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/picratchbox.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/picratchbox.o.d" -o ${OBJECTDIR}/picratchbox.o picratchbox.c  
+	@${FIXDEPS} "${OBJECTDIR}/picratchbox.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/picratchbox.o.d" -o ${OBJECTDIR}/picratchbox.o picratchbox.c  
 	
 ${OBJECTDIR}/usb_descriptors.o: usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/usb_descriptors.o.d 
 	@${RM} ${OBJECTDIR}/usb_descriptors.o.ok ${OBJECTDIR}/usb_descriptors.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/usb_descriptors.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/Include/USB" -I"C:/Users/shun/MPLABXProjects/PICratchBOX_OSC.X/USB" -MMD -MF "${OBJECTDIR}/usb_descriptors.o.d" -o ${OBJECTDIR}/usb_descriptors.o usb_descriptors.c  
+	@${FIXDEPS} "${OBJECTDIR}/usb_descriptors.o.d" $(SILENT) -c ${MP_CC} $(MP_EXTRA_CC_PRE)  -g -omf=elf -x c -c -mcpu=$(MP_PROCESSOR_OPTION) -I"./" -I"./Include" -I"./Include/USB" -I"./USB" -MMD -MF "${OBJECTDIR}/usb_descriptors.o.d" -o ${OBJECTDIR}/usb_descriptors.o usb_descriptors.c  
 	
 endif
 
@@ -192,7 +191,7 @@ else
 dist/${CND_CONF}/${IMAGE_TYPE}/PICratchBOX_OSC.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
 	${MP_CC} $(MP_EXTRA_LD_PRE)  -omf=elf -mcpu=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/PICratchBOX_OSC.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}        -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION)
-	${MP_CC_DIR}\\pic30-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/PICratchBOX_OSC.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -omf=elf
+	${MP_CC_DIR}/pic30-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/PICratchBOX_OSC.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -omf=elf
 endif
 
 
@@ -207,7 +206,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell "/Applications/microchip/mplabx/mplab_ide.app/Contents/Resources/mplab_ide/mplab_ide/modules/../../bin/"mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

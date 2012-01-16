@@ -72,7 +72,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>C30</languageToolchain>
         <languageToolchainVersion></languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -98,7 +98,7 @@
         <property key="enable-ansi-warnings" value="false"/>
         <property key="enable-short-double" value="false"/>
         <property key="extra-include-directories"
-                  value="C:\Users\shun\MPLABXProjects\PICratchBOX_OSC.X;C:\Users\shun\MPLABXProjects\PICratchBOX_OSC.X\Include;C:\Users\shun\MPLABXProjects\PICratchBOX_OSC.X\Include\USB;C:\Users\shun\MPLABXProjects\PICratchBOX_OSC.X\USB"/>
+                  value="./;./Include;./Include/USB;./USB"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -117,11 +117,11 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="preprocessor-macros" value=""/>
         <property key="list-file" value=""/>
-        <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
+        <property key="list-assembly" value="false"/>
         <property key="relax" value="false"/>
-        <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="warning-level" value="emit-warnings"/>
+        <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="list-section-info" value="false"/>
         <property key="omit-forms" value="false"/>
         <property key="list-symbols" value="false"/>
@@ -134,8 +134,8 @@
       </C30-LD>
       <C30Global>
         <property key="fast-math" value="false"/>
-        <property key="legacy-libc" value="false"/>
         <property key="output-file-format" value="elf"/>
+        <property key="legacy-libc" value="false"/>
       </C30Global>
       <PICkit3PlatformTool>
       </PICkit3PlatformTool>

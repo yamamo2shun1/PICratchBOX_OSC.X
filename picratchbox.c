@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with PICnome. if not, see <http:/www.gnu.org/licenses/>.
  *
- * picratchbox.c,v.1.0.05 2012/01/06
+ * picratchbox.c,v.1.0.06 2012/01/17
  */
 
 #include "picratchbox.h"
@@ -472,7 +472,7 @@ void receiveOscMsgs(void)
     {
       sendmsg[0] = 'f';
       sendmsg[1] = 10;
-      sendmsg[2] = 5;
+      sendmsg[2] = 6;
       if(mUSBUSARTIsTxTrfReady())
         mUSBUSARTTxRam(sendmsg, 3);
       CDCTxService();

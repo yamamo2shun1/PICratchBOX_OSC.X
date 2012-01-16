@@ -165,7 +165,7 @@ ROM USB_DEVICE_DESCRIPTOR device_dsc=
     0x00,                   // Protocol code
     USB_EP0_BUFF_SIZE,      // Max packet size for EP0, see usb_config.h
     0x04D8,                 // Vendor ID
-    0xF979,                  // Product ID: tkrworks PICratchBOX
+    0xF886,                  // Product ID: tkrworks PICratchBOX_OSC
     0x0100,                 // Device release number in BCD format
     0x01,                   // Manufacturer string index
     0x02,                   // Product string index
@@ -270,9 +270,9 @@ sizeof(sd001),USB_DESCRIPTOR_STRING,
 };
 
 //Product string descriptor
-ROM struct{BYTE bLength;BYTE bDscType;WORD string[11];}sd002={
+ROM struct{BYTE bLength;BYTE bDscType;WORD string[15];}sd002={
 sizeof(sd002),USB_DESCRIPTOR_STRING,
-{'P','I','C','r','a','t','c','h','B','O','X'}
+{'P','I','C','r','a','t','c','h','B','O','X','_','O','S','C'}
 };
 
 //Array of configuration descriptors

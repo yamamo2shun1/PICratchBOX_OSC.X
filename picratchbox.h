@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with PICnome. if not, see <http:/www.gnu.org/licenses/>.
  *
- * picratchbox.h,v.1.0.05 2012/01/06
+ * picratchbox.h,v.1.0.06 2012/01/17
  */
 
 #define MULTI_PLEXER
